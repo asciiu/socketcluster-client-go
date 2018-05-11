@@ -1,5 +1,7 @@
 package parser
 
+import "fmt"
+
 func Parse(rid int, cid int, event interface{}) MessageType {
 	if event != nil {
 		if event == "#publish" {
@@ -24,6 +26,8 @@ func Parse(rid int, cid int, event interface{}) MessageType {
 
 func GetMessageDetails(message interface{}) (data interface{}, rid int, cid int, eventname interface{}, error interface{}) {
 	//Converting given message into map, with keys and values to that we can parse it
+
+	fmt.Println("HERE:", message)
 
 	itemsMap := message.(map[string]interface{})
 
